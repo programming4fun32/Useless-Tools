@@ -1,0 +1,153 @@
+<html>
+
+<head>
+  <title>Solid Colors</title>
+  <style>
+    .mainBox {
+      background-image: linear-gradient(to right, rgb(0, 127, 255), rgb(0, 0, 255));
+      width: 75%;
+      padding: 5px;
+      border-radius: 5px;
+      margin: auto;
+    }
+
+    .numberInput {
+      width: 50px;
+      background-color: #ffffff;
+      color: #000000;
+      border: 2px solid #000000;
+      border-radius: 5px;
+    }
+
+    .select {
+      border: 2px solid #000000;
+      border-radius: 5px;
+      background-color: #ffffff;
+      color: #000000 transition-duration: 0.5s;
+      cursor: pointer;
+    }
+
+    .button {
+      background-color: #ffffff;
+      color: #000000;
+      border: 2px solid #000000;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .themeButton {
+      color: #00ff00;
+      border: 2px solid #00ff00;
+    }
+
+    .themeButton:hover {
+      background-color: #00ff00;
+      color: #000000;
+    }
+
+    .goButton {
+      color: #00ff00;
+      border: 2px solid #00ff00;
+    }
+
+    .goButton:hover {
+      background-color: #00ff00;
+      color: #000000;
+      border: 2px solid #00ff00;
+    }
+
+    .white {
+      color: #ffffff;
+    }
+
+    a {
+      color: #0000ff
+    }
+
+    a:hover {
+      color: #000000;
+    }
+  </style>
+  <script>
+    function apply() {
+      if (theme.value == "EB") {
+        mainBox.setAttribute("style", "background-image: linear-gradient(to right, rgb(0,127,255), rgb(0,0,255));")
+      }
+      if (theme.value == "R") {
+        mainBox.setAttribute("style", "background-image: linear-gradient(to right, rgb(255,0,0), rgb(127,0,0));")
+      }
+      if (theme.value == "O") {
+        mainBox.setAttribute("style", "background-image: linear-gradient(to right, rgb(255,127,0), rgb(191, 96, 0));")
+      }
+      if (theme.value == "P") {
+        mainBox.setAttribute("style", "background-image: linear-gradient(to right, rgb(255,127,255), rgb(255,0,255));")
+      }
+    }
+
+    function goButtonClick() {
+      const body = document.body
+      const rV = document.getElementById("rV");
+      const gV = document.getElementById("gV");
+      const bV = document.getElementById("bV");
+      if (rV.value > 255) {
+        rV.setAttribute("value", "255");
+      }
+      if (gV.value > 255) {
+        gV.setAttribute("value", "255");
+      }
+      if (bV.value > 255) {
+        bV.setAttribute("value", "255");
+      }
+      if (rV.value == "") {
+        rV.setAttribute("value", "0");
+      }
+      if (gV.value == "") {
+        gV.setAttribute("value", "0");
+      }
+      if (bV.value == "") {
+        bV.setAttribute("value", "0");
+      }
+      let mainBox = document.getElementById("mainBox")
+      let remove = document.body.removeChild(mainBox);
+      body.setAttribute("style", "background-color: rgb(" + rV.value + ", " + gV.value + ", " + bV.value + ")");
+    }
+  </script>
+</head>
+
+<body>
+  <div id="mainBox" class="mainBox">
+    <font face="arial">
+      <center>
+        <font size="5">
+          <h1 class="white">Solid Colors</h1>
+        </font>
+      </center>
+      <label class="white">Theme: <select name="theme" id="theme" class="select">
+          <option value="EB">Electric Blue</option>
+          <option value="R">Red</option>
+          <option value="O">Orange</option>
+          <option value="P">Pink</option>
+        </select>
+      </label>
+      <button id="themeButton" class="button themeButton" onclick="apply()">Apply</button>
+      <p></p>
+      <label class="white">R: </label>
+        <input id="rV" class="numberInput" type="number"></input>
+      <p></p>
+      <label class="white">G: </label>
+      <input id="gV" class="numberInput" type="number"></input>
+      <p></p>
+      <label class="white">B: </label>
+      <input id="bV" class="numberInput" type="number"></input>
+      <p></p>
+      <button class="button goButton" onclick="goButtonClick()">Go!</button>
+      <p></p>
+      <h2 class="white">My Links</h2>
+      <a href="https://www.youtube.com/channel/UCHZjnm4hjuLDOvfx99l8Ecg" target="_blank">YouTube</a>
+      <p></p>
+      <a href="https://www.roblox.com/users/290131238" target="_blank">Roblox</a>
+    </font>
+  </div>
+</body>
+
+</html>
